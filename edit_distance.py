@@ -19,21 +19,26 @@ def edit_distance(word1, word2):
 
 def print_alignment(matrix, word1, word2):
     i, j = len(word1), len(word2)
-    alignment = []
+    alignment_word1 = []
+    alignment_word2 = []
 
     while i > 0 or j > 0:
         if i > 0 and j > 0 and word1[i-1] == word2[j-1]:
-            alignment.append(word1[i-1])
+            alignment_word1.append(word1[i-1])
+            alignment_word2.append(word2[j-1])
             i -= 1
             j -= 1
         elif i > 0 and (j == 0 or matrix[i][j] == matrix[i-1][j] + 1):
-            alignment.append(word1[i-1])
+            alignment_word1.append(word1[i-1])
+            alignment_word2.append("_")
             i -= 1
         else:
-            alignment.append("_")
+            alignment_word1.append("_")
+            alignment_word2.append(word2[j-1])
             j -= 1
 
-    return ''.join(alignment[::-1])
+    return ''.join(alignment_word1[::-1]), ''.join(alignment_word2[::-1])
+
 
 if __name__ == "__main__":
     print("Welcome to Edit Distance Demonstration.")
