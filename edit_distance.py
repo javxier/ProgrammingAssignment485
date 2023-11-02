@@ -39,11 +39,11 @@ def print_alignment(matrix, word1, word2):
 
     return ''.join(alignment_word1[::-1]), ''.join(alignment_word2[::-1])
 
-
 if __name__ == "__main__":
-    print("Welcome to Edit Distance Demonstration.")
-    word1 = input("Please input the first word: ")
-    word2 = input("Please input the second word: ")
+    print("Welcome to Edit Distance Demonstration.*\n")
+    print("Please input two words for the edit distance:\n")
+    word1 = input("The first word: ")
+    word2 = input("The second word: ")
 
     matrix = edit_distance(word1, word2)
     edit_distance_value = matrix[len(word1)][len(word2)]
@@ -53,6 +53,7 @@ if __name__ == "__main__":
         print(' '.join(map(str, row)))
 
     print(f"\nThe edit distance is: {edit_distance_value}")
-    alignment = print_alignment(matrix, word1, word2)
+    alignment_word1, alignment_word2 = print_alignment(matrix, word1, word2)
     print(f"\nAlignment is:")
-    print(alignment)
+    print(alignment_word1)
+    print(alignment_word2)
