@@ -1,3 +1,12 @@
+# This project is made for terminal use with python
+# You can proceed with the directions for python
+#
+# Open VSCODE, any IDE, with terminal open
+# or simply on the terminal with python installed on the machine
+# run as python file
+# you will be prompted for input. Proceed
+# It will give you a matrix, edit distance, and alignment
+
 def edit_distance(word1, word2):
     m, n = len(word1), len(word2)
     dp = [[0] * (n+1) for _ in range(m+1)]
@@ -40,10 +49,13 @@ def print_alignment(matrix, word1, word2):
     return ''.join(alignment_word1[::-1]), ''.join(alignment_word2[::-1])
 
 if __name__ == "__main__":
-    print("Welcome to Edit Distance Demonstration.*\n")
+    print()
+    print("Welcome to Edit Distance Demonstration.*")
+    print("_______________________________________________")
     print("Please input two words for the edit distance:\n")
     word1 = input("The first word: ")
     word2 = input("The second word: ")
+    print("_______________________________________________")
 
     matrix = edit_distance(word1, word2)
     edit_distance_value = matrix[len(word1)][len(word2)]
@@ -57,3 +69,4 @@ if __name__ == "__main__":
     print(f"\nAlignment is:")
     print(alignment_word1)
     print(alignment_word2)
+    print()
